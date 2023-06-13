@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "parser": "@babel/eslint-parser",
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "curly": ["error", "multi-line"],
+    "eqeqeq": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "no-console": ["warn", { "allow": ["error", "warn"] }],
+    "no-nested-ternary": "error",
+    "no-unneeded-ternary": "error",
+    "no-unused-expressions": [
+      "error",
+      { "allowShortCircuit": true, "allowTernary": true }
+    ],
+    "react-hooks/exhaustive-deps": "off",
+    "no-useless-rename": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "require-await": "error",
+    "simple-import-sort/imports": "error",
+    "yoda": "warn"
+  }
+}
