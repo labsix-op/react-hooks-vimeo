@@ -6,7 +6,12 @@
   "module": "dist/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "engines": {
+    "node": "16.15.0"
   },
   "lint-staged": {
     "*.js": "./node_modules/.bin/eslint"
@@ -30,11 +35,23 @@
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "@storybook/addon-actions": "^7.0.20",
+    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/addon-interactions": "^7.0.20",
+    "@storybook/addon-links": "^7.0.20",
+    "@storybook/blocks": "^7.0.20",
+    "@storybook/builder-webpack4": "^6.5.16",
+    "@storybook/manager-webpack4": "^6.5.16",
+    "@storybook/react": "^7.0.20",
+    "@storybook/react-webpack5": "^7.0.20",
+    "@storybook/testing-library": "^0.1.0",
+    "@storybook/theming": "^7.0.20",
     "eslint": "^8.42.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
@@ -45,13 +62,15 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "storybook": "^7.0.20"
   },
   "peerDependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "dependencies": {
-    "@vimeo/player": "^2.20.1"
+    "@vimeo/player": "^2.20.1",
+    "styled-components": "^6.0.0-rc.3"
   }
 }
