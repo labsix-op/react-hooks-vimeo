@@ -2,22 +2,21 @@ import Vimeo from '@vimeo/player'
 import { useEffect, useRef, useState } from 'react'
 
 import {
-  DEFAULT_VIMEO_PLAYER_OPTIONS,
+  EMBED_OPTIONS_DEFAULT_VALUES,
   VIMEO_TO_REACT_EVENT_NAMES_MAP,
 } from '../constants'
 import { getUpdatePlayerHandler } from '../helpers/getUpdatePlayerHandler'
 
+const PLAYBACK_TIME_INTERVAL = 1000
+
 export default function useVimeoPlayer(
   video,
   containerRef,
-  {
-    options = {},
-    embedOptions = DEFAULT_VIMEO_PLAYER_OPTIONS,
-    events = {},
-  } = {}
+  { embedOptions = EMBED_OPTIONS_DEFAULT_VALUES, events = {} } = {}
 ) {
   const [vimeoPlayer, setVimeoPlayer] = useState(null)
   const playerRef = useRef(null)
+  const intervalRef = useRef(null)
   const prevEmbedOptionsRef = useRef(embedOptions)
 
   const getInitialOptions = () => {
@@ -56,24 +55,48 @@ export default function useVimeoPlayer(
 
   const updateOption = (option) => {
     const value = embedOptions[option]
+
     const handler = getUpdatePlayerHandler[option]
+    console.log({ value, handler, option })
     if (handler) {
       handler(vimeoPlayer, value)
     }
   }
 
-  const updateEmbedOptions = (embedOptionsNames) => {
+  const updateEmbedOptions = (embedOptionsNames) =>
     embedOptionsNames.forEach(updateOption)
+
+  const stopInterval = () => {
+    clearInterval(intervalRef.current)
+  }
+
+  const handlePlaybackTimeReporting = (player, callback) => {
+    stopInterval()
+    intervalRef.current = setInterval(() => {
+      player.getCurrentTime().then(callback)
+    }, [PLAYBACK_TIME_INTERVAL])
   }
 
   useEffect(() => {
     playerRef.current = new Vimeo(containerRef.current, getInitialOptions())
 
+    const { onPlaybackTimeReporting } = events
     Object.keys(VIMEO_TO_REACT_EVENT_NAMES_MAP).forEach((eventName) => {
       const reactName = VIMEO_TO_REACT_EVENT_NAMES_MAP[eventName]
 
       playerRef.current.on(eventName, (event) => {
         const handler = events[reactName]
+
+        if (eventName === 'play' && onPlaybackTimeReporting) {
+          handlePlaybackTimeReporting(
+            playerRef.current,
+            onPlaybackTimeReporting
+          )
+        }
+
+        if (eventName === 'pause') {
+          stopInterval()
+        }
 
         if (handler) {
           handler(event)
@@ -100,35 +123,40 @@ export default function useVimeoPlayer(
       }
     )
 
-    const { start, volume, playbackRate } = options
-
-    if (typeof start === 'number') {
-      playerRef.current.setCurrentTime(start)
-    }
-
-    if (typeof volume === 'number') {
-      updateOption('volume')
-    }
-
-    if (typeof playbackRate === 'number') {
-      updateOption('playbackRate')
-    }
-
     return () => {
       playerRef.current?.destroy()
+      if (intervalRef.current) {
+        stopInterval()
+      }
     }
   }, [containerRef])
 
   useEffect(() => {
-    const prevEmbedOptions = prevEmbedOptionsRef.current
-    prevEmbedOptionsRef.current = embedOptions
+    if (vimeoPlayer) {
+      const { start, volume, playbackRate } = embedOptions
 
-    if (prevEmbedOptions) {
-      const changes = Object.keys(embedOptions).filter(
-        (name) => embedOptions[name] !== prevEmbedOptions[name]
-      )
+      if (typeof start === 'number') {
+        vimeoPlayer.setCurrentTime(start)
+      }
 
-      updateEmbedOptions(changes)
+      if (typeof volume === 'number') {
+        updateOption('volume')
+      }
+
+      if (typeof playbackRate === 'number') {
+        updateOption('playbackRate')
+      }
+
+      const prevEmbedOptions = prevEmbedOptionsRef.current
+      prevEmbedOptionsRef.current = embedOptions
+
+      if (prevEmbedOptions) {
+        const changes = Object.keys(embedOptions).filter(
+          (name) => embedOptions[name] !== prevEmbedOptions[name]
+        )
+
+        updateEmbedOptions(changes)
+      }
     }
   }, [embedOptions])
 

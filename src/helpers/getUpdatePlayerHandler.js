@@ -25,10 +25,16 @@ export const getUpdatePlayerHandler = {
     })
   },
   [OPTIONS_NAMES.width]: (vimeoPlayer, value) => {
-    vimeoPlayer.element['width'] = value
+    // eslint-disable-next-line no-param-reassign
+    vimeoPlayer.element.width = value
   },
   [OPTIONS_NAMES.height]: (vimeoPlayer, value) => {
-    vimeoPlayer.element['height'] = value
+    // eslint-disable-next-line no-param-reassign
+    vimeoPlayer.element.height = value
+  },
+  [OPTIONS_NAMES.controls]: (vimeoPlayer, value) => {
+    // eslint-disable-next-line no-param-reassign
+    vimeoPlayer.element.controls = value
   },
   [OPTIONS_NAMES.video]: (vimeoPlayer, value) => {
     if (value) {

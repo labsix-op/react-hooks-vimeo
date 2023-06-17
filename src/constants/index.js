@@ -60,10 +60,11 @@ export const OPTIONS_NAMES = {
   textTrack: 'textTrack',
   title: 'title',
   transparent: 'transparent',
+  volume: 'volume',
   width: 'width',
 }
 
-export const DEFAULT_VIMEO_PLAYER_OPTIONS = {
+export const EMBED_OPTIONS_DEFAULT_VALUES = {
   [OPTIONS_NAMES.autopause]: true,
   [OPTIONS_NAMES.autopip]: null,
   [OPTIONS_NAMES.autoplay]: false,
