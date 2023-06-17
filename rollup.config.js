@@ -1,11 +1,10 @@
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import nodeResolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
-import { terser } from 'rollup-plugin-terser'
+import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
-import postcss from 'rollup-plugin-postcss'
-import svg from 'rollup-plugin-svg'
+import nodeResolve from '@rollup/plugin-node-resolve'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { terser } from 'rollup-plugin-terser'
 
 export default {
   input: './src/index.js',
@@ -31,12 +30,6 @@ export default {
     babel({
       babelHelpers: 'runtime',
       exclude: 'node_modules/**',
-    }),
-    postcss({
-      include: 'node_modules/**',
-    }),
-    svg({
-      include: 'node_modules/**',
     }),
     terser(),
   ],
