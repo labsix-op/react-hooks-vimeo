@@ -25,9 +25,11 @@ export default {
   },
 }
 
+const VIDEO = 'https://player.vimeo.com/video/76979871?h=8272103f6e'
+
 export const Default = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     autoplay: false,
     showByline: true,
     controls: true,
@@ -48,7 +50,7 @@ export const Default = {
 
 export const AutoPlayMuted = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     autoplay: true,
     muted: true,
   },
@@ -56,105 +58,105 @@ export const AutoPlayMuted = {
 // Define a story for each key
 export const Autoplay = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     autoplay: true,
   },
 }
 
 export const ShowByline = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     showByline: true,
   },
 }
 
 export const Controls = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     controls: false,
   },
 }
 
 export const Loop = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     loop: true,
   },
 }
 
 export const ShowPortrait = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     showPortrait: true,
   },
 }
 
 export const ShowTitle = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     showTitle: true,
   },
 }
 
 export const Muted = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     muted: true,
   },
 }
 
 export const Background = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     background: true,
   },
 }
 
 export const Responsive = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     responsive: true,
   },
 }
 
 export const DNT = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     dnt: true,
   },
 }
 
 export const Speed = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     speed: true,
   },
 }
 
 export const Keyboard = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     keyboard: true,
   },
 }
 
 export const PIP = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     pip: true,
   },
 }
 
 export const PlaysInline = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     playsInline: true,
   },
 }
 
 export const Transparent = {
   args: {
-    video: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
+    video: VIDEO,
     transparent: true,
   },
 }

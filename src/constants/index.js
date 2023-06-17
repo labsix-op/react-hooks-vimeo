@@ -33,6 +33,38 @@ export const VIMEO_TO_REACT_EVENT_NAMES_MAP = {
   loaded: 'onLoaded',
 }
 
+/**
+ * Names of all available options that can be passed to the Vimeo Player via `embedOptions`.
+ * @type {Object.<string, string>}
+ * @property {string} autopause - Whether to pause the current video when another Vimeo video on the same page starts to play.
+ * @property {string} autopip - Whether to enable the browser to enter picture-in-picture mode automatically when switching tabs or windows, where supported.
+ * @property {string} autoplay - Whether to start playback of the video automatically.
+ * @property {string} background - Whether the player is in background mode, which hides the playback controls, enables autoplay, and loops the video.
+ * @property {string} showByline - Whether to display the video owner's name.
+ * @property {string} color - The hexadecimal accent color value of the playback controls.
+ * @property {string} colors - The hexadecimal color values of the player.
+ * @property {string} controls - Whether to display the player's interactive elements, including the play bar and sharing buttons.
+ * @property {string} dnt - Whether to prevent the player from tracking session data, including cookies.
+ * @property {string} height - The height of the video in pixels.
+ * @property {string} interactiveParams - Key-value pairs representing dynamic parameters that are utilized on interactive videos with live elements.
+ * @property {string} keyboard - Whether to enable keyboard input to trigger player events.
+ * @property {string} loop - Whether to restart the video automatically after reaching the end.
+ * @property {string} maxHeight - The height of the video in pixels, where the video won't exceed its native height.
+ * @property {string} maxWidth - The width of the video in pixels, where the video won't exceed its native width.
+ * @property {string} muted - Whether the video is muted upon loading.
+ * @property {string} pip - Whether to include the picture-in-picture button among the player controls and enable the picture-in-picture API.
+ * @property {string} playsInline - Whether the video plays inline on supported mobile devices.
+ * @property {string} showPortrait - Whether to display the video owner's portrait.
+ * @property {string} quality - The playback quality of the video.
+ * @property {string} responsive - Whether to return a responsive embed code, or one that provides intelligent adjustments based on viewing conditions.
+ * @property {string} speed - Whether the player displays speed controls in the preferences menu and enables the playback rate API.
+ * @property {string} start - The start time of the video.
+ * @property {string} textTrack - The text track to display with the video.
+ * @property {string} title - Whether the player displays the title overlay.
+ * @property {string} transparent - Whether the responsive player and transparent background are enabled.
+ * @property {string} volume - The volume of the video.
+ * @property {string} width - The width of the video in pixels.
+ */
 export const OPTIONS_NAMES = {
   autopause: 'autopause',
   autopip: 'autopip',
@@ -64,6 +96,11 @@ export const OPTIONS_NAMES = {
   width: 'width',
 }
 
+/**
+ * Default values for each of the Vimeo Player options.
+ * These defaults will be used if the corresponding option is not provided via `embedOptions`.
+ * @type {Object.<string, any>}
+ */
 export const EMBED_OPTIONS_DEFAULT_VALUES = {
   [OPTIONS_NAMES.autopause]: true,
   [OPTIONS_NAMES.autopip]: null,

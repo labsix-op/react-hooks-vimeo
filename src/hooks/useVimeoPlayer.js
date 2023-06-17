@@ -1,4 +1,4 @@
-import Vimeo from '@vimeo/player'
+import VimeoPlayer from '@vimeo/player'
 import { useEffect, useRef, useState } from 'react'
 
 import {
@@ -9,6 +9,17 @@ import { getUpdatePlayerHandler } from '../helpers/getUpdatePlayerHandler'
 
 const PLAYBACK_TIME_INTERVAL = 1000
 
+/**
+ * A React hook that initializes and returns a Vimeo Player instance.
+ *
+ * @param {string|number} video - Vimeo video ID or URL.
+ * @param {React.MutableRefObject} containerRef - Ref to a container DOM element where the player will be inserted.
+ * @param {Object} options - Configuration options for the Vimeo Player and event handlers.
+ * @param {Object} options.embedOptions - Configuration options for the Vimeo Player. Check `EMBED_OPTIONS_DEFAULT_VALUES` for defaults and option names.
+ * @param {Object} options.events - Event handlers for Vimeo Player events. Check `VIMEO_TO_REACT_EVENT_NAMES_MAP` for event names and their corresponding handlers.
+ * @returns {Vimeo.Player} - An instance of Vimeo Player.
+ *
+ */
 export default function useVimeoPlayer(
   video,
   containerRef,
@@ -57,7 +68,6 @@ export default function useVimeoPlayer(
     const value = embedOptions[option]
 
     const handler = getUpdatePlayerHandler[option]
-    console.log({ value, handler, option })
     if (handler) {
       handler(vimeoPlayer, value)
     }
@@ -78,7 +88,10 @@ export default function useVimeoPlayer(
   }
 
   useEffect(() => {
-    playerRef.current = new Vimeo(containerRef.current, getInitialOptions())
+    playerRef.current = new VimeoPlayer(
+      containerRef.current,
+      getInitialOptions()
+    )
 
     const { onPlaybackTimeReporting } = events
     Object.keys(VIMEO_TO_REACT_EVENT_NAMES_MAP).forEach((eventName) => {

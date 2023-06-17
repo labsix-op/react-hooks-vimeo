@@ -11,6 +11,9 @@
       "version": "detect"
     }
   },
+  "env": {
+    "jest": true
+  },
   "parserOptions": {
     "ecmaVersion": 6
   },
@@ -47,5 +50,8 @@
     "require-await": "error",
     "simple-import-sort/imports": "error",
     "yoda": "warn"
+  },
+  "globals": {
+    "document": true
   }
 }
