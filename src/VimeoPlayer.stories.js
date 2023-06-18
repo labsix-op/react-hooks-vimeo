@@ -1,4 +1,4 @@
-import VimeoPlayer from '.'
+import VimeoPlayer from './VimeoPlayer'
 
 export default {
   title: 'Video/VimeoPlayer',

@@ -11,6 +11,9 @@
     "build-storybook": "storybook build",
     "localBuild": "npm run build && npm pack"
   },
+  "files": [
+    "/dist"
+  ],
   "engines": {
     "node": "16.15.0"
   },
