@@ -5,7 +5,7 @@ on:
     types: [created]
 
 jobs:
-  build:
+  pre-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,10 +13,9 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: npm run build
 
   publish-gpr:
-    needs: build
+    needs: pre-build
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -28,6 +27,7 @@ jobs:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
+      - run: npm run build
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
