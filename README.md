@@ -1,10 +1,10 @@
-# Vimeo Player Hook (Project Name)
+# React hooks - Vimeo
 
 This project is currently a work in progress. 🚧
 
 ## About
 
-This is my very first open source project. Recently, while working on a project, I found a need for a React Hook implementation for Vimeo's player. I was inspired by the [u-wave/react-vimeo](https://github.com/u-wave/react-vimeo/tree/default) library and decided to create a similar one, but with the usage of React hooks, providing a flexible component and a hook for using the Vimeo player. 
+This is my very first open source project. Recently, while working on a project, I found a need for a React Hook implementation for Vimeo's player. I was inspired by the [u-wave/react-vimeo](https://github.com/u-wave/react-vimeo/tree/default) library and decided to create a similar one, but with the usage of React hooks, providing a flexible component and a hook for using the Vimeo player.
 
 This project aims to make it simple for developers to include Vimeo's player in their React applications with a modern, hook-based approach.
 
