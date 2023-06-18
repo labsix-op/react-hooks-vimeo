@@ -24,6 +24,8 @@ const VideoWrapper = styled.div`
 
 export default function VimeoPlayer({
   video,
+  className,
+  // other Options
   paused,
   volume,
   start,
@@ -126,11 +128,18 @@ export default function VimeoPlayer({
     },
   })
 
+  if (className) {
+    return <div className={className} ref={vimeoPlayerRef} />
+  }
+
   return <VideoWrapper ref={vimeoPlayerRef} />
 }
 
+VimeoPlayer.displayName = 'VimeoPlayer'
+
 VimeoPlayer.defaultProps = {
-  // ...EMBED_OPTIONS_DEFAULT_VALUES,
+  className: '',
+  // other options,
   paused: null,
   volume: null,
   start: null,

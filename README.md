@@ -74,6 +74,62 @@ The `useVimeoPlayer` hook initializes a Vimeo Player instance and embeds it into
 
 This hook will return an instance of the Vimeo Player, which you can use to programmatically control the video playback. However, in most cases, you do not need to handle this instance directly, as the hook takes care of embedding the player and setting up event handlers for you.
 
+## Props
+
+### Embed options
+
+Below is the updated documentation for the props that the Vimeo Player hook accepts:
+
+| Name         | Type           | Default | Description                                                                                                                                    |
+| :----------- | :------------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| video        | number, string |         | Vimeo video ID or URL to be played.                                                                                                            |
+| paused       | bool           | `null`  | If true, the video is paused.                                                                                                                  |
+| volume       | number         | `null`  | The playback volume as a number between 0 and 1.                                                                                               |
+| start        | number         | `null`  | The time (in seconds) at which the video should start playing.                                                                                 |
+| playbackRate | number         | `null`  | The playback rate of the video.                                                                                                                |
+| autopause    | bool           | `true`  | If true, the video will pause automatically when another video starts playing.                                                                 |
+| autoplay     | bool           | `false` | If true, the video will start playing automatically. Note: This may not work on some devices.                                                  |
+| showByline   | bool           | `true`  | If true, the video's byline will be displayed.                                                                                                 |
+| controls     | bool           | `true`  | If false, all elements in the player, such as the progress bar and sharing buttons, will be hidden. (Requires a Vimeo PRO / Business account). |
+| loop         | bool           | `false` | If true, the video will play again from the start once it reaches the end.                                                                     |
+| showPortrait | bool           | `true`  | If true, the video's portrait will be displayed.                                                                                               |
+| showTitle    | bool           | `true`  | If true, the video's title will be displayed.                                                                                                  |
+| muted        | bool           | `false` | If true, the video will start in a muted state.                                                                                                |
+| background   | bool           | `false` | If true, the video will start in a background state with no controls.                                                                          |
+| responsive   | bool           | `false` | If true, the player will resize according to its parent element (experimental feature).                                                        |
+| dnt          | bool           | `false` | If true, the player won't track any session data, including all cookies and analytics.                                                         |
+| speed        | bool           | `false` | If true, the playback rate controls will be enabled. (Requires a Vimeo PRO / Business account).                                                |
+| keyboard     | bool           | `true`  | If true, keyboard inputs will trigger player events.                                                                                           |
+| pip          | bool           | `false` | If true, the picture-in-picture button will be displayed in the control bar and the picture-in-picture API will be enabled.                    |
+| playsInline  | bool           | `true`  | If true, the video will play inline on mobile devices. Set to `false` to go fullscreen on playback.                                            |
+| transparent  | bool           | `true`  | If false, the responsive player and transparent background will be disabled.                                                                   |
+| quality      | string         |         | Vimeo Plus, PRO, and Business members can default an embedded video to a specific quality on desktop.                                          |
+| textTrack    | string         |         | The default language for captions/subtitles.                                                                                                   |
+
+### Event Props
+
+Here is the documentation for the event props that the Vimeo Player hook supports:
+
+| Name                    | Type     | Description                                                                 |
+| :---------------------- | :------- | :-------------------------------------------------------------------------- |
+| onPlay                  | Function | A callback that fires when the video starts to play.                        |
+| onPlaying               | Function | A callback that fires continuously as the video is playing.                 |
+| onPause                 | Function | A callback that fires when the video is paused.                             |
+| onEnd                   | Function | A callback that fires when the video has ended.                             |
+| onTimeUpdate            | Function | A callback that fires when the current playback position has changed.       |
+| onProgress              | Function | A callback that fires when the player is fetching the video.                |
+| onSeeked                | Function | A callback that fires when a seek operation has completed.                  |
+| onTextTrackChange       | Function | A callback that fires when the text track (captions/subtitles) has changed. |
+| onCueChange             | Function | A callback that fires when the currently-displayed cue changes.             |
+| onCuePoint              | Function | A callback that fires when the video playback reaches a cue point.          |
+| onVolumeChange          | Function | A callback that fires when the volume level has changed.                    |
+| onPlaybackRateChange    | Function | A callback that fires when the playback rate has changed.                   |
+| onError                 | Function | A callback that fires when an error occurs.                                 |
+| onLoaded                | Function | A callback that fires when the video has loaded and is ready to play.       |
+| onPlaybackTimeReporting | Function | A callback that fires per second to represent that the video is playing.    |
+
+Please note that each of these event handlers should be a function that takes an event object as its only parameter. The properties of the event object will depend on the specific event being handled.
+
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE).

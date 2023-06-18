@@ -4,6 +4,7 @@ import { OPTIONS_NAMES } from '.'
 
 export const videoPlayerPropshape = {
   video: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  className: PropTypes.string,
   onPlaybackTimeReporting: PropTypes.func,
   /**
    * Pause the video.
