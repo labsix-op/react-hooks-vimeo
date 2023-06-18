@@ -38,16 +38,11 @@ export const getUpdatePlayerHandler = {
   },
   [OPTIONS_NAMES.video]: (vimeoPlayer, value) => {
     if (value) {
-      const { start } = this.props
       const loaded = vimeoPlayer.loadVideo(value)
-      // Set the start time only when loading a new video.
-      // It seems like this has to be done after the video has loaded, else it just starts at
-      // the beginning!
-      if (typeof start === 'number') {
-        loaded.then(() => {
-          vimeoPlayer.setCurrentTime(start)
-        })
-      }
+
+      loaded.then(() => {
+        vimeoPlayer.setCurrentTime(0)
+      })
     } else {
       vimeoPlayer.unload()
     }
