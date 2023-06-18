@@ -1,4 +1,4 @@
-# React hooks - Vimeo
+# @labsix/react-hooks-vimeo
 
 This project is currently a work in progress. 🚧
 
@@ -8,7 +8,6 @@ This project is currently a work in progress. 🚧
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Props](#props)
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -35,13 +34,17 @@ If using `react v18.0` please add `--legacy-peer-deps`
 
 ## Usage
 
+### React Component
+
+### Hook
+
 In order to use the `useVimeoPlayer` hook, you first need to import it from the library. Then, create a reference to the DOM element where you want to insert the Vimeo player, and finally, call the hook with the appropriate parameters.
 
 Here's an example of how you can use the `useVimeoPlayer` hook:
 
 ```jsx
 import { useRef } from 'react'
-import { useVimeoPlayer } from '@your-library-name/react-vimeo'
+import { useVimeoPlayer } from '@labsix/react-hooks-vimeo'
 
 const YourComponent = () => {
   const vimeoPlayerRef = useRef(null)
@@ -54,7 +57,7 @@ const YourComponent = () => {
     },
     events: {
       onPlay: () => {
-        /* ... */
+        /* ...events */
       },
     },
   })
