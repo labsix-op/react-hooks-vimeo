@@ -1,6 +1,6 @@
 {
   "name": "@labsix/react-hooks-vimeo",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "React Vimeo player component and hook.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
