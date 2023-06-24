@@ -1,7 +1,5 @@
 # @labsix/react-hooks-vimeo
 
-This project is currently a work in progress. 🚧
-
 ## Summary
 
 - [About](#about)
@@ -35,6 +33,14 @@ If using `react v18.0` please add `--legacy-peer-deps`
 ## Usage
 
 ### React Component
+
+```jsx
+import VimeoPlayer from '@labsix/react-hooks-vimeo'
+
+const YourComponent = () => <VimeoPlayer video='YOUR_VIMEO_VIDEO_ID_OR_URL' />
+
+export default YourComponent
+```
 
 ### Hook
 
