@@ -6,6 +6,7 @@ import {
   VIMEO_TO_REACT_EVENT_NAMES_MAP,
 } from '../constants'
 import { getUpdatePlayerHandler } from '../helpers/getUpdatePlayerHandler'
+import { getVideoIdType } from '../helpers/getVideoIdType'
 
 const PLAYBACK_TIME_INTERVAL = 1000
 
@@ -31,7 +32,7 @@ export default function useVimeoPlayer(
   const prevEmbedOptionsRef = useRef(embedOptions)
 
   const getInitialOptions = () => {
-    const videoType = /^https?:/i.test(video) ? 'url' : 'id'
+    const videoType = getVideoIdType(video)
 
     return {
       [videoType]: video,
