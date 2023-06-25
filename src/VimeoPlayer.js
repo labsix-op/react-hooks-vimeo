@@ -1,26 +1,9 @@
+import './VimeoPlayer.css'
+
 import { useRef } from 'react'
-import { styled } from 'styled-components'
 
 import { videoPlayerPropshape } from './constants/propshapes'
 import useVimeoPlayer from './hooks/useVimeoPlayer'
-
-const VideoWrapper = styled.div`
-  width: 100%;
-  position: relative;
-  padding-bottom: 56.25%; // Aspect ratio (height / width * 100) => (9 / 16 * 100 = 56.25%)
-  height: 0;
-  overflow: hidden;
-
-  iframe,
-  object,
-  embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-`
 
 export default function VimeoPlayer({
   video,
@@ -132,7 +115,7 @@ export default function VimeoPlayer({
     return <div className={className} ref={vimeoPlayerRef} />
   }
 
-  return <VideoWrapper ref={vimeoPlayerRef} />
+  return <div className='vimeo_player' ref={vimeoPlayerRef} />
 }
 
 VimeoPlayer.displayName = 'VimeoPlayer'
