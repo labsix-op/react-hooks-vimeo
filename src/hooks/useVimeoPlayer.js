@@ -85,7 +85,7 @@ export default function useVimeoPlayer(
     stopInterval()
     intervalRef.current = setInterval(() => {
       player.getCurrentTime().then(callback)
-    }, [PLAYBACK_TIME_INTERVAL])
+    }, PLAYBACK_TIME_INTERVAL)
   }
 
   useEffect(() => {
