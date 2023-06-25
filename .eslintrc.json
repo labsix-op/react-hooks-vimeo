@@ -1,10 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["simple-import-sort", "@typescript-eslint", "storybook"],
   "extends": [
-    "airbnb",
+    "airbnb-typescript",
     "eslint:recommended",
     "plugin:import/recommended",
     "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "settings": {
     "react": {
@@ -17,8 +22,6 @@
   "parserOptions": {
     "ecmaVersion": 6
   },
-  "parser": "@babel/eslint-parser",
-  "plugins": ["simple-import-sort"],
   "rules": {
     "curly": ["error", "multi-line"],
     "eqeqeq": "error",
@@ -42,14 +45,18 @@
       }
     ],
     "react-hooks/exhaustive-deps": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".tsx", ".ts"] }
+    ],
     "react/react-in-jsx-scope": "off",
     "no-useless-rename": "error",
     "no-var": "error",
     "prefer-const": "error",
     "require-await": "error",
     "simple-import-sort/imports": "error",
-    "yoda": "warn"
+    "yoda": "warn",
+    "@typescript-eslint/no-unused-vars": "error"
   },
   "globals": {
     "document": true

@@ -1,7 +1,9 @@
-// jest.config.js
+import type { Config } from '@jest/types'
 
-module.exports = {
+const config: Config.InitialOptions = {
   // testEnvironment: 'jsdom',
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
 }
+
+export default config

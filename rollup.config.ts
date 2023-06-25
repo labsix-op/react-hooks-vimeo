@@ -2,13 +2,13 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import nodeResolve from '@rollup/plugin-node-resolve'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss' // Add this line
-// eslint-disable-next-line import/no-extraneous-dependencies
+import type { RollupOptions } from 'rollup'
+import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
+import typescript from '@rollup/plugin-typescript'
 
-export default {
-  input: './src/index.js',
+const config: RollupOptions = {
+  input: './src/index.ts',
   output: [
     {
       file: 'dist/index.js',
@@ -20,7 +20,6 @@ export default {
     },
   ],
   plugins: [
-    peerDepsExternal(),
     nodeResolve(),
     json({
       include: 'node_modules/**',
@@ -28,6 +27,7 @@ export default {
     commonjs({
       include: 'node_modules/**',
     }),
+    typescript(),
     babel({
       babelHelpers: 'runtime',
       exclude: 'node_modules/**',
@@ -36,3 +36,5 @@ export default {
     terser(),
   ],
 }
+
+export default config
