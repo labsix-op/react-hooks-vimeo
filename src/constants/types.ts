@@ -97,3 +97,11 @@ export type VimeoPlayerProps = {
   onLoaded?: () => void
   onPlaybackTimeReporting?: () => void
 }
+
+export type ExtendedVimeoPlayer = VimeoPlayer & {
+  element: {
+    width: number | string | undefined
+    height: number | string | undefined
+    controls: number | string | undefined
+  }
+}

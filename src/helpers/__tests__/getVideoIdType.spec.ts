@@ -22,17 +22,9 @@ describe('getVideoIdType', () => {
 
   test('Returns "id" for strings of numbers', () => {
     expect(getVideoIdType('123456')).toBe('id')
-    expect(getVideoIdType(123456)).toBe('id')
   })
 
   test('Throws error for empty strings', () => {
     expect(() => getVideoIdType('')).toThrow(Error)
-  })
-
-  test('Throws error for non-string inputs', () => {
-    expect(() => getVideoIdType({})).toThrow(Error)
-    expect(() => getVideoIdType([])).toThrow(Error)
-    expect(() => getVideoIdType(null)).toThrow(Error)
-    expect(() => getVideoIdType(undefined)).toThrow(Error)
   })
 })

@@ -7,7 +7,10 @@ import {
   VIMEO_TO_REACT_EVENT_NAMES_MAP,
 } from '../constants'
 import { ControlOptions, EmbedOptions } from '../constants/types'
-import { getUpdatePlayerHandler } from '../helpers/getUpdatePlayerHandler'
+import {
+  getUpdatePlayerHandler,
+  updatePlayer,
+} from '../helpers/getUpdatePlayerHandler'
 import { getVideoIdType } from '../helpers/getVideoIdType'
 
 const PLAYBACK_TIME_INTERVAL = 1000
@@ -85,10 +88,7 @@ export default function useVimeoPlayer(
 
     const value = updateableOptions[option]
 
-    const handler = getUpdatePlayerHandler[option]
-    if (handler && vimeoPlayer) {
-      handler(vimeoPlayer, value)
-    }
+    updatePlayer(vimeoPlayer, option, value)
   }
 
   const updateEmbedOptions = (
