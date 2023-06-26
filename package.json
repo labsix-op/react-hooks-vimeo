@@ -4,11 +4,12 @@
   "description": "React Vimeo player component and hook.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "homepage": "http://labsix-op.github.io/react-hooks-vimeo",
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint src",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build --output-dir demo",
     "localBuild": "npm run build && npm pack",
     "test": "jest",
     "test:watch": "npm run test -- --watch"
@@ -60,6 +61,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.12",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
