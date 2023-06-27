@@ -6,12 +6,14 @@
   "module": "dist/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "lint": "eslint src",
-    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "lint": "eslint src",
     "localBuild": "npm run build && npm pack",
-    "test": "jest",
-    "test:watch": "npm run test -- --watch"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "files": [
     "/dist"
@@ -54,6 +56,7 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
+    "@vitejs/plugin-react": "^4.0.1",
     "eslint": "^8.42.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.8.0",
@@ -75,7 +78,8 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "storybook": "^7.0.20"
+    "storybook": "^7.0.20",
+    "vitest": "^0.32.2"
   },
   "peerDependencies": {
     "react": "^17.0.0",

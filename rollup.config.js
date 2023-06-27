@@ -3,8 +3,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss' // Add this line
-// eslint-disable-next-line import/no-extraneous-dependencies
+import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
 
 export default {

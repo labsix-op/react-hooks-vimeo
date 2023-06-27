@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🏗️👷 Styling your project before committing 👷🏗️'
+echo 'please be patient, this may take a while...'
+
+npm run prepare
+npx lint-staged
+
+echo '🎉 No error found: committing this now.... ✨🚀🏄‍♂️🍻'
