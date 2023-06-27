@@ -149,3 +149,13 @@ Contributions are more than welcome as this is an open-source project. Feel free
 Thank you for checking out this project. There's a lot more to come, and I'm excited to share more about this project as it progresses.
 
 Stay tuned for more updates! I hope this library will prove to be a valuable tool for you and your projects. Thank you for your interest in this project.
+
+## Support / Sponsor
+
+I'm not looking for any money to support this project but if you want to help me feel free.
+
+If I helped you I'll love to know, ping me on Twitter.
+
+if you want to buy me a coffee you can use the link below
+
+<a href="https://bmc.link/zcfydw5zgpU" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
