@@ -6,5 +6,6 @@ echo 'please be patient, this may take a while...'
 
 npm run prepare
 npx lint-staged
+npm run test
 
 echo '🎉 No error found: committing this now.... ✨🚀🏄‍♂️🍻'
