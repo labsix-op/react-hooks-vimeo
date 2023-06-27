@@ -4,6 +4,7 @@
 
 - [About](#about)
 - [Features](#features)
+- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributions](#contributions)
@@ -21,6 +22,10 @@ The library provides:
 
 - A React hook `useVimeoPlayer` that allows for easy integration with Vimeo's player API.
 - A reusable `VimeoPlayer` component that simplifies adding Vimeo players to your React app.
+
+## Demo
+
+[Demo](https://labsix-op.github.io/react-hooks-vimeo/?path=/docs/video-vimeoplayer--docs)
 
 ## Installation
 
@@ -156,6 +161,6 @@ I'm not looking for any money to support this project but if you want to help me
 
 If I helped you I'll love to know, ping me on Twitter.
 
-if you want to buy me a coffee you can use the link below
+if you want to buy me a coffee feel free!
 
 <a href="https://bmc.link/zcfydw5zgpU" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
