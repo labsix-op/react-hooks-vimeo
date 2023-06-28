@@ -81,6 +81,9 @@
     "storybook": "^7.0.20",
     "vitest": "^0.32.2"
   },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0"
+  },
   "dependencies": {
     "@vimeo/player": "^2.20.1",
     "prop-types": "^15.8.1"
