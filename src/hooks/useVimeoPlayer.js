@@ -27,6 +27,7 @@ export default function useVimeoPlayer(
   { embedOptions = EMBED_OPTIONS_DEFAULT_VALUES, events = {} } = {}
 ) {
   const [vimeoPlayer, setVimeoPlayer] = useState(null)
+  const [volumeTest, setVolume] = useState(null)
   const playerRef = useRef(null)
   const intervalRef = useRef(null)
   const prevEmbedOptionsRef = useRef(embedOptions)
@@ -65,14 +66,21 @@ export default function useVimeoPlayer(
     }
   }
 
-  const updateOption = async (option) => {
+  const updateOption = (option) => {
     const value = embedOptions[option]
-    console.log({ option, value })
 
     const handler = getUpdatePlayerHandler[option]
     if (handler) {
-      await handler(vimeoPlayer, value)
+      handler(vimeoPlayer, value)
     }
+  }
+  const funcT = async (player) => {
+    setVolume(9)
+    setVolume(player)
+    const number = await player?.getVolume()
+    // console.log({ number })
+    // setVolume(typeof number === 'number' ? number + 1 : 3)
+    setVolume(8)
   }
 
   const stopInterval = () => {
@@ -86,7 +94,7 @@ export default function useVimeoPlayer(
     }, PLAYBACK_TIME_INTERVAL)
   }
 
-  useEffect(() => {
+  useEffect(async () => {
     playerRef.current = new VimeoPlayer(
       containerRef.current,
       getInitialOptions()
@@ -147,6 +155,12 @@ export default function useVimeoPlayer(
       playerRef.current?.setPlaybackRate(playbackRate)
     }
 
+    setVolume(12)
+
+    await funcT(playerRef.current)
+
+    setVolume(10)
+
     return () => {
       playerRef.current?.destroy()
       if (intervalRef.current) {
@@ -170,5 +184,13 @@ export default function useVimeoPlayer(
     }
   }, [embedOptions])
 
-  return vimeoPlayer
+  if (vimeoPlayer) {
+    const funcT = async () => {
+      const number = await vimeoPlayer.getVolume()
+      console.log({ number })
+    }
+    funcT()
+  }
+
+  return { vimeoPlayer, volumeTest }
 }
