@@ -9,7 +9,5 @@ export default defineConfig({
   test: {
     globals: true, // Required by testing-library ro run auto DOM cleanup.
     environment: 'jsdom',
-    // setupFiles: './jest.config.js',
-    // ...
   },
 })
