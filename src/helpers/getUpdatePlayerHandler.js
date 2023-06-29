@@ -13,6 +13,9 @@ export const getUpdatePlayerHandler = {
   [OPTIONS_NAMES.volume]: (vimeoPlayer, value) => {
     vimeoPlayer.setVolume(value)
   },
+  [OPTIONS_NAMES.start]: (vimeoPlayer, value) => {
+    vimeoPlayer.setCurrentTime(value)
+  },
   [OPTIONS_NAMES.paused]: (vimeoPlayer, value) => {
     vimeoPlayer.getPaused().then((paused) => {
       if (value && !paused) {
@@ -36,9 +39,9 @@ export const getUpdatePlayerHandler = {
     // eslint-disable-next-line no-param-reassign
     vimeoPlayer.element.controls = value
   },
-  [OPTIONS_NAMES.video]: (vimeoPlayer, value) => {
-    if (value) {
-      const loaded = vimeoPlayer.loadVideo(value)
+  [OPTIONS_NAMES.video]: (vimeoPlayer, video) => {
+    if (video) {
+      const loaded = vimeoPlayer.loadVideo(video)
 
       loaded.then(() => {
         vimeoPlayer.setCurrentTime(0)
@@ -52,5 +55,11 @@ export const getUpdatePlayerHandler = {
   },
   [OPTIONS_NAMES.quality]: (vimeoPlayer, value) => {
     vimeoPlayer.setQuality(value)
+  },
+  [OPTIONS_NAMES.pip]: async (vimeoPlayer, pictureInPicture) => {
+    if (pictureInPicture) {
+      await vimeoPlayer.requestPictureInPicture()
+    }
+    await vimeoPlayer.exitPictureInPicture()
   },
 }

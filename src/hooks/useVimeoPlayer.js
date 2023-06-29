@@ -65,17 +65,15 @@ export default function useVimeoPlayer(
     }
   }
 
-  const updateOption = (option) => {
+  const updateOption = async (option) => {
     const value = embedOptions[option]
+    console.log({ option, value })
 
     const handler = getUpdatePlayerHandler[option]
     if (handler) {
-      handler(vimeoPlayer, value)
+      await handler(vimeoPlayer, value)
     }
   }
-
-  const updateEmbedOptions = (embedOptionsNames) =>
-    embedOptionsNames.forEach(updateOption)
 
   const stopInterval = () => {
     clearInterval(intervalRef.current)
@@ -137,6 +135,18 @@ export default function useVimeoPlayer(
       }
     )
 
+    const { start, volume, playbackRate } = embedOptions
+
+    if (typeof start === 'number') {
+      playerRef.current?.setCurrentTime(start)
+    }
+    if (typeof volume === 'number') {
+      playerRef.current?.setVolume(volume)
+    }
+    if (typeof playbackRate === 'number') {
+      playerRef.current?.setPlaybackRate(playbackRate)
+    }
+
     return () => {
       playerRef.current?.destroy()
       if (intervalRef.current) {
@@ -147,29 +157,15 @@ export default function useVimeoPlayer(
 
   useEffect(() => {
     if (vimeoPlayer) {
-      const { start, volume, playbackRate } = embedOptions
-
-      if (typeof start === 'number') {
-        vimeoPlayer.setCurrentTime(start)
-      }
-
-      if (typeof volume === 'number') {
-        updateOption('volume')
-      }
-
-      if (typeof playbackRate === 'number') {
-        updateOption('playbackRate')
-      }
-
       const prevEmbedOptions = prevEmbedOptionsRef.current
       prevEmbedOptionsRef.current = embedOptions
 
       if (prevEmbedOptions) {
-        const changes = Object.keys(embedOptions).filter(
-          (name) => embedOptions[name] !== prevEmbedOptions[name]
-        )
-
-        updateEmbedOptions(changes)
+        Object.keys(embedOptions).forEach((name) => {
+          if (embedOptions[name] !== prevEmbedOptions[name]) {
+            updateOption(name)
+          }
+        })
       }
     }
   }, [embedOptions])

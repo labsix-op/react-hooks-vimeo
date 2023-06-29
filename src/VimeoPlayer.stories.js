@@ -1,7 +1,7 @@
 import VimeoPlayer from './VimeoPlayer'
 
 export default {
-  title: 'Video/VimeoPlayer',
+  title: 'VimeoPlayer',
   component: VimeoPlayer,
   argTypes: {
     autoplay: { control: 'boolean' },
@@ -19,9 +19,8 @@ export default {
     pip: { control: 'boolean' },
     playsInline: { control: 'boolean' },
     transparent: { control: 'boolean' },
-
     start: { control: 'number' },
-    volume: { control: 'number' },
+    volume: { control: { type: 'range', min: 0, max: 1, step: 0.1 } },
   },
 }
 
@@ -45,6 +44,7 @@ export const Default = {
     pip: false,
     playsInline: true,
     transparent: true,
+    volume: 0,
   },
 }
 
@@ -53,13 +53,6 @@ export const AutoPlayMuted = {
     video: VIDEO,
     autoplay: true,
     muted: true,
-  },
-}
-// Define a story for each key
-export const Autoplay = {
-  args: {
-    video: VIDEO,
-    autoplay: true,
   },
 }
 
@@ -74,6 +67,20 @@ export const Controls = {
   args: {
     video: VIDEO,
     controls: false,
+  },
+}
+
+export const Color = {
+  args: {
+    video: VIDEO,
+    color: '#ff5251',
+  },
+}
+
+export const Colors = {
+  args: {
+    video: VIDEO,
+    colors: ['#ff5251', '#ff5251', '#ff5251', '#ff5251'],
   },
 }
 
@@ -158,5 +165,12 @@ export const Transparent = {
   args: {
     video: VIDEO,
     transparent: true,
+  },
+}
+
+export const Volume = {
+  args: {
+    video: VIDEO,
+    volume: 1,
   },
 }
