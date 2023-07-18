@@ -6,11 +6,12 @@
   "module": "dist/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build -s public",
+    "serve-storybook": "serve storybook-static",
     "lint": "eslint src",
     "localBuild": "npm run build && npm pack",
     "prepare": "husky install",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 -s public",
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage"
