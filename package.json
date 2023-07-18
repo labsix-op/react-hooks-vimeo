@@ -20,7 +20,7 @@
     "/dist"
   ],
   "engines": {
-    "node": "16.15.0"
+    "node": "18.16.0"
   },
   "lint-staged": {
     "*.js": "./node_modules/.bin/eslint"
