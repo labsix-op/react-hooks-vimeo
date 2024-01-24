@@ -83,7 +83,7 @@
     "react": "^17.0.0"
   },
   "dependencies": {
-    "@vimeo/player": "^2.20.1",
+    "@vimeo/player": "^2.21.0",
     "prop-types": "^15.8.1"
   }
 }
